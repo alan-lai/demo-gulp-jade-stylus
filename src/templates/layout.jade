@@ -1,0 +1,13 @@
+block config
+    - var name = "Alan"
+    - var title = "Homepage"
+    - var fruitBowl = ['banana', 'apple', 'mango']
+
+doctype
+html(lang="en")
+    head
+        title #{ title }
+        link(href="./css/base.css" rel="stylesheet")
+    body
+        block main
+            h1 hello world

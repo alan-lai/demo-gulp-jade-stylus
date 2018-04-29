@@ -1,0 +1,40 @@
+//-include templates/layout
+extends templates/layout
+
+block append config
+    - var name = "Jade"
+
+block prepend main
+    div.warning warning before main
+
+//- mixins
+mixin product(title, imagePath, price)
+    .product
+        .product-wrapper
+            img.product-image(src="#{imagePath}")
+            .product-content
+                h2.product-title #{title}
+                p.product-price AU$#{price.toFixed(2)}
+
+block main
+    h2 I am taking over
+    h1 hello welcome to #{ name }'s page
+        p some text
+        .box
+            ul
+                li
+                    .wrapper
+                        h2 title
+                        p paragraph
+                        // comment - feels like emmit
+                        //- jade comment
+        #box-1
+            #box-1-content(data-name="box-1")
+                h2 fruit bowl
+                ul
+                    each fruit, i in fruitBowl
+                        li(class="fruit-#{i + 1}") fruit
+        #box-2
+            h2 products
+            .products
+                +product('iphone', '#', 35.00)
